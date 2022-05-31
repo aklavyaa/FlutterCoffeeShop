@@ -123,7 +123,6 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
                   cart: cart.cart,
                   userId: FirebaseAuth.instance.currentUser!.uid,
                 );
-
                 Get.to(() => PaymentMethod(order: order));
               },
               color: kPrimary,
