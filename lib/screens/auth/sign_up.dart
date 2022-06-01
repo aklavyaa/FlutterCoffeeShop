@@ -3,7 +3,12 @@ import 'package:coffee/models/my_loader.dart';
 import 'package:coffee/models/user_model.dart';
 import 'package:coffee/providers/auth_provider.dart';
 import 'package:coffee/screens/auth/widgets/my_text_field.dart';
-// created
+import 'package:coffee/screens/home/home.dart';
+import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:provider/provider.dart';
+
+// created by gurwinder
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
@@ -100,4 +105,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ));
                     }
                   },
-                  
+                  color: kPrimary,
+                  child: isLoading
+                      ? const MyLoader()
+                      : const Text('CREATE ACCOUNT',
+                          style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              const Spacer(),
+              const Center(
+                  child: Text('By tapping CREATE ACCOUNT you accept our')),
+              const SizedBox(
+                height: 5,
+              ),
+              const Center(
+                child: Text(
+                  'Terms And Conditions',
+                  style: TextStyle(color: kPrimary),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
