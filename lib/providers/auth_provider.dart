@@ -21,16 +21,7 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> signUp(UserModel userModel) async {
-    final credentials = await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
-            email: userModel.email!, password: userModel.password!);
 
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(credentials.user!.uid)
-        .set(userModel.toJson());
-  }
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
